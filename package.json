@@ -1,0 +1,25 @@
+{
+  "name": "interactive_animation_control",
+  "version": "1.0.0",
+  "description": "Hobbes Internal-Grids Baby",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionSurf/interactive_animation_control.git"
+  },
+  "keywords": [
+    "interactive",
+    "animation",
+    "control",
+    "flare"
+  ],
+  "author": "Javier Prieto, Sam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ionSurf/interactive_animation_control/issues"
+  },
+  "homepage": "https://github.com/ionSurf/interactive_animation_control#readme"
+}
