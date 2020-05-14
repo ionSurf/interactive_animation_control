@@ -1,150 +1,116 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Internal Grids - Reactive Animation [Coffee Bags Test 01]</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="@ionSurf" />
 
-    <!-- Bootstrap 4-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
-    />
+<head>
+  <title>Internal Grids - Reactive Animation [Coffee Bags Test 01]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="@ionSurf" />
 
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+  <!-- Bootstrap 4-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 
-  <body onload="onLoad()">
-    <!-- Navigation Bar -->
-    <div class="pos-f-t">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h4 class="text-white">Interactive Animation Control</h4>
-          <span class="text-muted"
-            >A taste of the power of Flare, reactive programming and
-            javascript</span
-          >
-        </div>
-      </div>
-      <nav class="navbar navbar-dark bg-dark">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarToggleExternalContent"
-          aria-controls="navbarToggleExternalContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
-    </div>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
 
-    <!-- Main Content -->
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto"></header>
-
-      <main role="main" class="inner cover">
-        <div class="col-md-9">
-          <canvas id="canvas1"></canvas>
-        </div>
-        <div id="indicator col-md-3" class="indicator"></div>
-        <div class="sliders-group">
-          <div class="slidecontainer">
-            <label><p>Root X Scale</p></label>
-            <input
-              type="range"
-              min="1.0"
-              max="200.0"
-              value="100.0"
-              class="slider"
-              id="root-x-scale"
-            />
-          </div>
-          <div class="slidecontainer">
-            <label><p>Root Y Scale</p></label>
-            <input
-              type="range"
-              min="1.0"
-              max="200.0"
-              value="100.0"
-              class="slider"
-              id="root-y-scale"
-            />
-          </div>
-          <div class="slidecontainer">
-            <label><p>Rectangle X Scale</p></label>
-            <input
-              type="range"
-              min="1.0"
-              max="200.0"
-              value="100.0"
-              class="slider"
-              id="rectangle-x-scale"
-            />
-          </div>
-          <div class="slidecontainer">
-            <label><p>Rectangle Y Scale</p></label>
-            <input
-              type="range"
-              min="1.0"
-              max="200.0"
-              value="100.0"
-              class="slider"
-              id="rectangle-y-scale"
-            />
-          </div>
-          <div class="slidecontainer">
-            <label><p>Animation Slider for RectangleWidthAnimation</p></label>
-            <input
-              type="range"
-              min="1.0"
-              max="200.0"
-              value="100.0"
-              class="slider"
-              id="rectangle-width-animation"
-            />
-          </div>
-        </div>
-      </main>
-
-      <footer class="footer">
-        <div class="container"></div>
-      </footer>
-    </div>
-    <div id="splash-screen">
-      <div class="hollowLoader">
-        <div class="largeBox">
-          <div class="smallBox"></div>
-        </div>
+<body onload="onLoad()">
+  <!-- Navigation Bar -->
+  <div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        <h4 class="text-white">Interactive Animation Control</h4>
+        <span class="text-muted">A taste of the power of Flare, reactive programming and
+          javascript</span>
       </div>
     </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+        aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </div>
 
-    <!-- Source files -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/@reactivex/rxjs@5.5.12/dist/global/Rx.js"></script>
+  <!-- Main Content -->
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto"></header>
 
-    <!-- Source files -->
-    <script src="https://cdn.jsdelivr.net/gh/ionsurf/interactive_animation_control/build/Flare.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ionsurf/interactive_animation_control/build/gl-matrix-min.js"></script>
-    <script src="./lib/canvaskit/canvaskit.js"></script>
+    <main role="main" class="inner cover">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="d-flex justify-content-center">
+            <canvas id="canvas1"></canvas>
+          </div>
+        </div>
+      </div>
+      <div id="indicator" class="indicator col-md-3"></div>
+      <div class="sliders-group">
+        <div class="slidecontainer">
+          <label>
+            <p>Root X Scale</p>
+          </label>
+          <input type="range" min="1.0" max="200.0" value="100.0" class="slider" id="root-x-scale" />
+        </div>
+        <div class="slidecontainer">
+          <label>
+            <p>Root Y Scale</p>
+          </label>
+          <input type="range" min="1.0" max="200.0" value="100.0" class="slider" id="root-y-scale" />
+        </div>
+        <div class="slidecontainer">
+          <label>
+            <p>Rectangle X Scale</p>
+          </label>
+          <input type="range" min="1.0" max="200.0" value="100.0" class="slider" id="rectangle-x-scale" />
+        </div>
+        <div class="slidecontainer">
+          <label>
+            <p>Rectangle Y Scale</p>
+          </label>
+          <input type="range" min="1.0" max="200.0" value="100.0" class="slider" id="rectangle-y-scale" />
+        </div>
+        <div class="slidecontainer">
+          <label>
+            <p>Animation Slider for RectangleWidthAnimation</p>
+          </label>
+          <input type="range" min="1.0" max="200.0" value="100.0" class="slider" id="rectangle-width-animation" />
+        </div>
+      </div>
+    </main>
 
-    <!-- Project specific scripts -->
-    <script src="./lib/src/flare_object.js" compile></script>
-    <script src="./lib/src/main.js"></script>
-  </body>
+    <footer class="footer">
+      <div class="container"></div>
+    </footer>
+  </div>
+  <div id="splash-screen">
+    <div class="hollowLoader">
+      <div class="largeBox">
+        <div class="smallBox"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Source files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/@reactivex/rxjs@5.5.12/dist/global/Rx.js"></script>
+
+  <!-- Source files -->
+  <script src="https://cdn.jsdelivr.net/gh/ionsurf/interactive_animation_control/build/gl-matrix-min.js"></script>
+  <script src="./lib/canvaskit/canvaskit.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ionsurf/interactive_animation_control/build/Flare.min.js"></script>
+
+  <!-- Project specific scripts -->
+  <script src="./lib/src/flare_object_v0.5.js" compile></script>
+  <script src="./lib/src/main-coffee.js"></script>
+</body>
+
 </html>
