@@ -48,3 +48,9 @@ slidecontainer {
   background: #4caf50; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+
+#canvas1 {
+  width: 540px;
+  height: 540px;
+  /*margin: auto;*/
+}
